@@ -2,6 +2,8 @@
     font-size: calc(1vw + 1em);
     --zindexOfHeader: 20;
     --zindexOfNavigation: 10;
+    --zindexOfPageOverlay: 30;
+    --zindexOfSearchBar: 40;
 }
 *, *::before, *::after {
     box-sizing: border-box;
@@ -23,24 +25,72 @@ a {
     ---header---
 \*              */
 header {
-    padding: 0.01em 0.4em 0.3em;
+    padding: 1.1em 0.5em ;
     position: relative;
     background-color: white;
-    z-index: var(--zindexOfHeader)
+    z-index: var(--zindexOfHeader);
 }
 .logo {
     font-size: 1.5rem !important;
     font-weight: bold;
     color: #1d2a35;
-}
-.logo::before {
-    content: '|';
-    font-size: 2em;
-    color: #fad285;
-}
-.navigation {
     position: relative;
-    z-index: var(--zindexOfNavigation);
+    padding-left: 15px;
+    text-shadow:  0 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.logo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: .2em;
+    transform: scaleY(2);
+    background-color:#fad285 ;
+}
+.btn {
+    padding: 0.3em 0.5em ;
+    border-radius: 2em;
+    background-color: transparent;
+    cursor: pointer;
+}
+.btn--search {
+    font-size: 0.9rem;
+    color: #615B5B;
+    position: absolute;
+    top: 50%;
+    right: calc(1.5em + 40px) ;
+    transform: translateY(-50%);
+    border: 1px solid #CBCACA;
+}
+.btn--search i {
+    margin-right: 0.4em 
+}
+.search-bar {
+    font-size: 1rem;
+    text-align: center;
+    padding: 10px 20px;
+    position: fixed;
+    top: 4em;
+    left: 10%;
+    right: 10%;
+    border-radius: 2em;
+    border: 1px solid  #CBCACA;
+    display: none;
+    z-index: var(--zindexOfSearchBar);
+    outline: none;
+}
+
+.page-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: var(--zindexOfPageOverlay);
+    display: none;
 }
 .menu__icon {
     position: absolute;
@@ -54,18 +104,18 @@ header {
 .menu__icon > .icon__bar {
     height: .3em;
     border-radius: 10em;
-    background-color: mediumseagreen;
+    background-color: #3498DB;
     position: relative;
     transition: .2s;
 }
-.menu__icon>.icon__bar::after {
+.menu__icon>.icon__bar::before {
     right: 106%; 
     position: absolute;
     content: '';
     height: .3em;
     width: .3em;
     border-radius: 450%;
-    background-color: mediumseagreen;
+    background-color: #3498DB;
 }
 .menu__icon > .icon__bar + .icon__bar {
     margin-top: calc(0.6em / 2) ;
@@ -78,6 +128,10 @@ header {
 }
 .menu__icon.active .icon__bar--3 {
     transform: translateY(-.5em) rotate(45deg);
+}
+.navigation {
+    position: relative;
+    z-index: var(--zindexOfNavigation);
 }
 .navigation__list-link {
     list-style: none;
@@ -97,40 +151,54 @@ header {
     background-color: #e6eff8;
     border-bottom: 1px solid white;
 }
+/* *--banner-- */
 .banner {
+    height: 85vh ;
     position: relative;
-    padding: 0 10px;
-    height: 85vh;
-    background-image: linear-gradient( 45deg ,rgba(0, 0, 0, 0.7) 20%,transparent), url("image/hero_image.jpg");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
 }
-.banner__text {
+.banner__image {
     position: absolute;
-    top: 50%;
-    left: 10%;
-    transform: translateY(-50%) ;
-    padding: 20px;
+    top: 5em;
+    left: 6em;
+    height:  12em;
+    right: 1.5em;
     max-width: max-content;
-    /* background-color: rgba(225, 255, 255, 0.7); */
-    /* backdrop-filter: blur(2px); */
+    overflow: hidden;
+    border-radius: 2em;
+    box-shadow: 4px 4px 4px rgb(80, 78, 78);
 }
-.banner__text p {
-    color: #d6caca;
+.banner__image img {
+    max-height: 100%;
+    object-fit: cover;
 }
-.banner__text > p:first-child {
-    font-style: italic;
+.banner__overlay {
+    position: absolute;
+    top: 3em;
+    left: 1.5em;
+    max-width: 80%;
+    height: 12em;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    z-index: 2;
 }
-.banner__text h1 {
+.banner__overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    clip-path: polygon(0 0, 63% 0, 100% 100%, 0% 100%);
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 2em 0 0 2em;
+    z-index: -1;
+}
+h1 {
+    color: rgba(26, 24, 24, 0.877);
     text-transform: uppercase;
-    color: white;
+    padding: .5em;
+    background-color: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(2px);
+    outline: 5px solid white;
 }
-
-@media screen  and (max-width: 30em){
-    .banner__text h1 {
-        font-size: 1.7rem ;
-    }    
-}
-
-

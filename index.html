@@ -1,28 +1,33 @@
 <!DOCTYPE html>
 <html lang="vi">
-  
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title> Home page </title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fontawesome/css/all.css">
     <script src="./jquery.js"></script>
     <script src="./main.js"></script>
-</head>     
-   
+</head>
+
 <body>
     <div class="wrapper">
         <header>
             <a class="logo" href="./index.html">HOME</a>
+            <button type="submit" class="btn btn--search"><i class="fa-solid fa-magnifying-glass"></i>Tìm
+                kiếm..</button>
+            <input type="text" class="search-bar" name="search" autocomplete="on" placeholder="Tìm kiếm tại đây...">
+            <div class="page-overlay"></div>
             <div class="menu__icon ">
                 <div class="icon__bar icon__bar--1"></div>
                 <div class="icon__bar icon__bar--2"></div>
                 <div class="icon__bar icon__bar--3"></div>
             </div>
         </header>
-        <nav class="navigation"> 
-         
+        <nav class="navigation">
+
             <ul class="navigation__list-link">
                 <li><a href="" class="navigation__link">Trang chủ</a></li>
                 <li><a href="" class="navigation__link">Sản phẩm</a></li>
@@ -30,14 +35,29 @@
                 <li><a href="" class="navigation__link">Liên hệ</a></li>
             </ul>
         </nav>
-        <div class="banner"> 
-            <div class="banner__text">
-                <p>Amet consectetur</p>
-                <h1>Lorem ipsum  </h1>
-                <p>Lorem, ipsum</p>
+        <div class="banner">
+            <div class="banner__image">
+                <img src="image/banner-image.jpg" alt="">
             </div>
-        </div>
+            <div class="banner__overlay">
+                <h1>heading 1</h1>
+            </div>
+
+        </div> 
     </div>
+    <script>
+        $(document).ready(function () {
+            $('.btn--search').click(function () {
+                $('.search-bar').css('display', 'block');
+                $('.page-overlay').css('display', 'block');
+                $('.search-bar').focus();
+            })
+            $('.page-overlay').mousedown(function () {
+                $('.search-bar').css('display', 'none');
+                $(this).css('display', 'none');
+            })
+        })
+    </script>
 </body>
 
 </html>
