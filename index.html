@@ -30,9 +30,9 @@
 
             <ul class="navigation__list-link">
                 <li><a href="" class="navigation__link">Trang chủ</a></li>
-                <li><a href="" class="navigation__link">Sản phẩm</a></li>
-                <li><a href="" class="navigation__link">Thông tin</a></li>
-                <li><a href="" class="navigation__link">Liên hệ</a></li>
+                <li><a href="" class="navigation__link">Sản phẩm bán</a></li>
+                <li><a href="" class="navigation__link">Sản phẩm thuê</a></li>
+                <li><a href="" class="navigation__link">Thông tin liên hệ</a></li>
             </ul>
         </nav>
         <div class="banner">
@@ -42,19 +42,38 @@
             <div class="banner__overlay">
                 <h1>heading 1</h1>
             </div>
-
-        </div> 
+        </div>
+        <main>
+            <!-- 
+                guide
+            -->
+            <section class="guide">
+                <h2>Hướng dẫn</h2>
+                <ul class="row">
+                    <li class="col">
+                        <span>1</span>
+                        <p>Tìm sản phẩm mà bạn thích</p>                                        
+                    </li>
+                    <li class="col">
+                        <span>2</span>
+                        <p>Kết nối với chúng tôi để được hỗ trợ</p>                                    
+                    </li>
+                    <li class="col">
+                        <span>3</span>
+                        <p>Thỏa thuận & Giao dịch</p>                                
+                    </li>
+                </ul>
+            </section>
+        </main>
     </div>
     <script>
         $(document).ready(function () {
             $('.btn--search').click(function () {
-                $('.search-bar').css('display', 'block');
-                $('.page-overlay').css('display', 'block');
+                $('.search-bar, .page-overlay').css('display', 'block');
                 $('.search-bar').focus();
             })
-            $('.page-overlay').mousedown(function () {
-                $('.search-bar').css('display', 'none');
-                $(this).css('display', 'none');
+            $('.search-bar__close').mousedown(function () {
+                $('.search-bar, .page-overlay').css('display', 'none');
             })
         })
     </script>
