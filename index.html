@@ -12,7 +12,7 @@
     <script src="./main.js"></script>
 </head>
 
-<body>
+<body onscroll="scrollShow()">
     <div class="wrapper">
         <header>
             <a class="logo" href="./index.html">HOME</a>
@@ -38,14 +38,17 @@
         <div class="banner">
             <h1>Lorem us ipsum dolor .</h1>
             <div class="banner__image">
-                <img src="image/apartment_2.svg" alt="">
+                <img class="is-animate graphic " src="image/graphic-aprterment-1.svg" alt="">
+                <img class="is-animate graphic " src="image/graphic-aprterment-tree.svg" alt="">
+                <img class="is-animate graphic " src="image/graphic-aprterment-2.svg" alt="">
+                <img class="is-animate graphic " src="image/graphic-aprterment-tree.svg" alt="">
             </div>
         </div>
         <main>
             <!-- 
                 guide
             -->
-            <section class="guide">
+            <section class="guide scrollshow" >
                 <h2>Hướng dẫn</h2>
                 <ul class="row">
                     <li class="col">
@@ -66,10 +69,13 @@
                 <p>Sản phẩm</p>
                 <h2>GOLDEN MANSION</h2>
                 <div class="two-btn">
-                    <button class="btn btn--sell active">Bán</button>
-                    <button class="btn btn--rent">Thuê</button>
+                    <button class="btn btn--sell active" onclick="productListSelection(this, '.product__list--sell')">Bán</button>
+                    <button class="btn btn--rent" onclick="productListSelection(this, '.product__list--rent')">Thuê</button>
                 </div>
-                <div class="product__list">
+                <!--  
+                    selling products: begin !
+                -->
+                <div class="product__list product__list--sell is-show ">
                     <div class="product__card">
                         <div class="card__image">
                             <img src="image/banner-image.jpg" alt="">
@@ -147,20 +153,94 @@
                         </div>
                     </div>
                 </div>
+                <!--
+                    selling products: end !
+                    rental products: begin !
+                -->
+                <div class="product__list product__list--rent">
+                    <div class="product__card">
+                        <div class="card__image">
+                            <img src="image/banner-image-2.jpg" alt="">
+                        </div>
+                        <div class="card__content">
+                            <h3>Lorem Ipsum is simply dummy text
+                                of the print.</h3>
+                            <div class="card_disc">
+                                <ul class="card_disc__list">
+                                    <li class="disc_list__item"><img src="image/bed-icon.png" alt="" class="image-icon">
+                                        3 Phòng ngủ</li>
+                                    <li class="disc_list__item"><img src="image/area-icon.png" alt=""
+                                            class="image-icon"> Diện tích: 96
+                                        m<sup>2</sup></li>
+                                </ul>
+                                <a href="#" class="btn but--detail">Chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product__card">
+                        <div class="card__image">
+                            <img src="image/banner-image-2.jpg" alt="">
+                        </div>
+                        <div class="card__content">
+                            <h3>Lorem Ipsum is simply dummy text
+                                of the print.</h3>
+                            <div class="card_disc">
+                                <ul class="card_disc__list">
+                                    <li class="disc_list__item"><img src="image/bed-icon.png" alt="" class="image-icon">
+                                        3 Phòng ngủ</li>
+                                    <li class="disc_list__item"><img src="image/area-icon.png" alt=""
+                                            class="image-icon"> Diện tích: 96
+                                        m<sup>2</sup></li>
+                                </ul>
+                                <a href="#" class="btn but--detail">Chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product__card">
+                        <div class="card__image">
+                            <img src="image/banner-image-2.jpg" alt="">
+                        </div>
+                        <div class="card__content">
+                            <h3>Lorem Ipsum is simply dummy text
+                                of the print.</h3>
+                            <div class="card_disc">
+                                <ul class="card_disc__list">
+                                    <li class="disc_list__item"><img src="image/bed-icon.png" alt="" class="image-icon">
+                                        3 Phòng ngủ</li>
+                                    <li class="disc_list__item"><img src="image/area-icon.png" alt=""
+                                            class="image-icon"> Diện tích: 96
+                                        m<sup>2</sup></li>
+                                </ul>
+                                <a href="#" class="btn but--detail">Chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="product__card">
+                        <div class="card__image">
+                            <img src="image/banner-image-2.jpg" alt="">
+                        </div>
+                        <div class="card__content">
+                            <h3>Lorem Ipsum is simply dummy text
+                                of the print.</h3>
+                            <div class="card_disc">
+                                <ul class="card_disc__list">
+                                    <li class="disc_list__item"><img src="image/bed-icon.png" alt="" class="image-icon">
+                                        3 Phòng ngủ</li>
+                                    <li class="disc_list__item"><img src="image/area-icon.png" alt=""
+                                            class="image-icon"> Diện tích: 96
+                                        m<sup>2</sup></li>
+                                </ul>
+                                <a href="#" class="btn but--detail">Chi tiết</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--  
+                    rental products: end !
+                -->
             </section>
         </main>
     </div>
-    <script>
-        $(document).ready(function () {
-            $('.btn--search').click(function () {
-                $('.search-bar, .page-overlay').css('display', 'block');
-                $('.search-bar').focus();
-            })
-            $('.search-bar__close').mousedown(function () {
-                $('.search-bar, .page-overlay').css('display', 'none');
-            })
-        })
-    </script>
 </body>
 
 </html>
