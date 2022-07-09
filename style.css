@@ -183,8 +183,10 @@ ul {
 /* *--banner-- */
 .banner {
     position: relative;
-    padding-bottom: 1.5em;
+    padding-bottom: 1.7em;
+    padding-left: 1em;
     width: 100%;
+    /* background-color: #FFF7EF; */
 }
 
 .banner__image {
@@ -196,39 +198,39 @@ ul {
     overflow: hidden;
 }
 
-.graphic {
+.is-animate .graphic {
     transform: translateY(100%);
+    animation: graphic 1s ease forwards;
 }
-
+@keyframes graphic {
+    to {
+        transform: translateY(0);
+    }
+}
 .graphic:nth-child(1) {
     width: 35%;
-    transition: 1s;
 }
 
 .graphic:nth-child(3) {
     width: 30%;
-    transition: 1s 1s;
+    animation-delay: 1.2s;
 }
 
 .graphic:nth-child(2) {
     width: 10%;
-    transition: 1s 1.5s
+    animation-delay: 1s;
 }
 
 .graphic:nth-child(4) {
     width: 15%;
-    transition: 1s 2s;
-}
-
-.is-animate.graphic {
-    transform: translateY(0);
+    animation-delay: 1.5s;
 }
 
 h1 {
     font-size: 1.5rem;
     color: rgba(26, 24, 24, 0.877);
     text-transform: uppercase;
-    padding-left: .5em;
+    /* padding-left: .5em; */
     padding-top: .5em;
 }
 
@@ -300,7 +302,8 @@ h3 {
     color: mediumseagreen;
 }
 
-.active {
+.active.btn--rent,
+.active.btn--sell {
     background-color: mediumseagreen;
     color: white;
 }
@@ -361,12 +364,29 @@ h3 {
     margin: 0 0.3em 0 0;
 }
 
-.but--detail {
+.btn--detail {
     font-size: 1rem;
     color: black;
     background-color: #FAD285;
     border: 2px solid #FAD285;
     flex-shrink: 0;
+}
+
+/*Loading effect by js */
+.load_js__up {
+    animation: load 1s forwards;
+}
+
+@keyframes load {
+    from {
+        transform: translatey(50%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translatey(0);
+        opacity: 1;
+    }
 }
 
 @media screen and (min-width: 46.25em) {
@@ -382,12 +402,19 @@ h3 {
 }
 
 @media screen and (min-width: 46.25em) and (max-width: 63.9375em) {
+    .banner {
+        height: calc(65vh - 3.2em);
+        padding-bottom: 1.5em;
+    }
     .product__list {
         grid-template-columns: 1fr 1fr;
     }
 }
 
 @media screen and (min-width: 63.9375em) {
+    .banner {
+        height: calc(100vh - 3.2em)
+    }
     .product .product__card {
         display: flex;
         align-items: center;
