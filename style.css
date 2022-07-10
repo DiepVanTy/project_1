@@ -213,12 +213,12 @@ ul {
 
 .graphic:nth-child(3) {
     width: 30%;
-    animation-delay: 1.2s;
+    animation-delay: 1s;
 }
 
 .graphic:nth-child(2) {
     width: 10%;
-    animation-delay: 1s;
+    animation-delay: 1.3s;
 }
 
 .graphic:nth-child(4) {
